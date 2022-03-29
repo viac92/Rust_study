@@ -1,3 +1,4 @@
+#[derive(Debug)]
 struct Rectangle {
     height: u32,
     weight: u32,
@@ -9,6 +10,7 @@ fn main() {
         weight: 20, 
     };
     println!("{}", area(&my_rectangle));
+    dbg!(&my_rectangle);
 }
 
 fn area(rectangle: &Rectangle) -> u32 {
