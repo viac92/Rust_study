@@ -1,3 +1,7 @@
+// use std::collections::HashSet;
+
+// not finish yet
+
 #[derive(Debug, PartialEq)]
 pub enum Comparison {
     Equal,
@@ -7,7 +11,19 @@ pub enum Comparison {
 }
 
 pub fn sublist<T: PartialEq>(_first_list: &[T], _second_list: &[T]) -> Comparison {
-    unimplemented!("da finire")
+    if _first_list == _second_list {
+        return Comparison::Equal
+    } else if _first_list.len() >= _second_list.len() {
+            if !_second_list.iter().all(|item| _first_list.contains(item)) {
+                return Comparison::Unequal;
+            }
+        return Comparison::Superlist;
+    } else {
+            if !_first_list.iter().all(|item| _second_list.contains(item)) {
+                return Comparison::Unequal;
+            }
+        return Comparison::Sublist;
+    }
 }
 
 fn main() {
